@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$1" = "-h" ]
+then
+	echo "Usage:"
+	echo -e "\tpack-cpio <File1>\n"
+	echo -e "Set <File1> to the file to be added.\n"	
+	exit 0
+fi
+
+if [ $# != 0 ]
+then
+	cp "$1" .
+fi
+find .| cpio -o --format=newc --owner=root > ../rootfs.cpio
+

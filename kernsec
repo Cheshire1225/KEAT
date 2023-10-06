@@ -1,0 +1,27 @@
+#!/bin/bash
+echo Kernel Protection:
+if grep -q "nokaslr" $1; then
+	echo -e "   KASLR:   \033[31mOFF\033[0m"
+else
+	echo -e "   KASLR:   \033[32mON\033[0m"
+fi
+
+if grep '\-cpu' $1 | grep -q 'smep'; then
+	echo -e "   SMEP:    \033[32mON\033[0m"
+else
+	echo -e "   SMEP:    \033[31mOFF\033[0m"
+fi
+
+if grep '\-cpu' $1 | grep -q 'smap'; then
+	echo -e "   SMAP:    \033[32mON\033[0m"
+else
+	echo -e "   SMAP:    \033[31mOFF\033[0m"
+fi
+
+if grep -q "pti=on" $1; then
+	echo -e "   KPTI:    \033[32mON\033[0m"
+elif grep -q "pti=off" $1 || grep -q "nopti" $1; then
+	echo -e "   KPTI:    \033[31mOFF\033[0m"
+else
+	echo -e "   KPTI:    \033[33mUNKNOWN\033[0m"
+fi
