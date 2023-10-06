@@ -1,4 +1,5 @@
-kernsec usage:\n\tkernsec <run.sh file>
+kernsec usage:
+  kernsec <run.sh file>
 
 extract-vmlinux usage:
   extract-vmlinux <packed kernel image file>
