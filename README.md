@@ -20,3 +20,7 @@ unpack-cpio usage:
   unpack-cpio [vmlinux file]
 ```
 
+
+
+
+**It is recommended to add shell scripts to the /usr/bin directory.**
